@@ -9,10 +9,10 @@ import { Task } from '../../components/Task';
 export default function Home(){ 
     return(
         <>
+            <View style={styles.header}>
+                <Image source={require('../../images/Logo.png')}/>
+            </View>
             <View style={styles.container}>
-                <View style={styles.header}>
-                    <Image source={require('../../images/Logo.png')}/>
-                </View>
                 <View style={styles.addNewTask}>
                     <TextInput
                         style={styles.textInput}
@@ -27,13 +27,16 @@ export default function Home(){
                 </View>
                 {/* body */}
                 <View style={styles.bodyTexts}>
-                    <View>
+                    <View style={styles.textContainer}>
                         <Text style={styles.textBody01}>Criadas</Text>
+                        <Text style={styles.textCounter}>0</Text>
                     </View>
-                     <View >
+                     <View style={styles.textContainer}>
                         <Text style={styles.textBody02}>Concluídas</Text>
+                        <Text style={styles.textCounter}>0</Text>
                     </View>
                 </View>
+                <Task/>
             </View>
         </>
     )

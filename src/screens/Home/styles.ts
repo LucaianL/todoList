@@ -5,10 +5,11 @@ export const styles = StyleSheet.create({
         backgroundColor: '#0D0D0D',
         alignItems: 'center',
         paddingVertical: 70,
+        
+        
     },
     addNewTask: {
         height: 54,
-        marginHorizontal: 24,
         flexDirection: 'row', 
         top: -27,
     },
@@ -56,12 +57,21 @@ export const styles = StyleSheet.create({
     // container
 
     container: {
+        paddingHorizontal: 24,
         flex: 1,
-        backgroundColor: '#333333'
+        backgroundColor: '#1A1A1A'
     },
 
     bodyTexts: {
-        
+        // flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    
+        marginTop: 20
+    },
+
+    textContainer: {
+        flexDirection: 'row'
     },
 
     textBody01: {
@@ -74,6 +84,14 @@ export const styles = StyleSheet.create({
         color: '#8284FA',
         fontSize: 14,
         fontWeight: 'bold',
+    },
+    textCounter: {
+        backgroundColor: '#333333',
+        color: '#D9D9D9',
+        borderRadius: 999,
+        textAlign: 'center',
+        paddingHorizontal: 8,
+        marginLeft: 8,
     },
 
 

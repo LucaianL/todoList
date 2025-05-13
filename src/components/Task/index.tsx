@@ -5,12 +5,11 @@ import { styles } from "./styles";
 export function Task(){
     return(
         <View style={styles.container}>
+            <View style={styles.circle}/>
            <Text style={styles.cardText}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                Doloremque nostrum quia laboriosam omnis itaque mollitia 
-                sunt animi iste expedita. 
+                Lorem ipsum dolor 
            </Text>
-           <Image source={require('../../images/trash.png')}/>
+           <Image style={styles.image} source={require('../../images/trash.png')}/>
         </View>
     )
 }
