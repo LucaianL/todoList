@@ -1,12 +1,33 @@
 import React, { useState } from 'react';
 
-import { Image , View, TextInput, Text, TouchableOpacity} from "react-native";
+import { Image , View, TextInput, Text, TouchableOpacity, FlatList, Alert} from "react-native";
 
 import { styles } from './styles';
 
 import { Task } from '../../components/Task';
 
 export default function Home(){ 
+    const [task, setTask] = useState<string[]>([]);
+    const [taskName, setTaskName] = useState(''); 
+
+    function handleTaskAdd(){
+        setTask(prevState => [...prevState, taskName])
+        setTaskName('')
+    }
+
+    function handleTaskRemove(item: string){
+        Alert.alert("Remover task?", ``, [
+            {
+                text: 'Sim',
+                onPress: () => setTask(prevState => prevState.filter(task => task !== item))
+            },
+            {
+                text: 'Não',
+                style: 'cancel'
+            }
+        ])
+    }
+
     return(
         <>
             <View style={styles.header}>
@@ -18,8 +39,10 @@ export default function Home(){
                         style={styles.textInput}
                         placeholder='Adicione uma nova tarefa'
                         placeholderTextColor="#808080"
+                        onChangeText={setTaskName}
+                        value={taskName}
                         />
-                    <TouchableOpacity style={styles.TextInputButton}>
+                    <TouchableOpacity style={styles.TextInputButton} onPress={handleTaskAdd}>
                         <Text style={styles.textInputButtonIcon}>
                             +
                         </Text>
@@ -36,7 +59,16 @@ export default function Home(){
                         <Text style={styles.textCounter}>0</Text>
                     </View>
                 </View>
-                <Task/>
+                <FlatList
+                    data={task}
+                    renderItem={({item})  =>
+                        <Task 
+                        task={item}
+                        onRemove={() => handleTaskRemove(item)}
+                        />
+                    }
+                
+                />
             </View>
         </>
     )

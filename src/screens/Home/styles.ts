@@ -21,6 +21,8 @@ export const styles = StyleSheet.create({
         borderRadius: 6,
         borderWidth: 1,
         borderColor: '#5E60CE',
+        
+        color: '#F2F2F2',
 
         fontSize: 16,
 
@@ -59,7 +61,8 @@ export const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 24,
         flex: 1,
-        backgroundColor: '#1A1A1A'
+        backgroundColor: '#1A1A1A',
+        paddingBottom: 90
     },
 
     bodyTexts: {
@@ -67,7 +70,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
     
-        marginTop: 20
+        marginVertical: 20
     },
 
     textContainer: {

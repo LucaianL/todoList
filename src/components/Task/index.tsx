@@ -2,14 +2,21 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 
 import { styles } from "./styles";
 
-export function Task(){
+type Props = {
+    task: string;
+    onRemove: () => void;
+}
+
+export function Task({task, onRemove} : Props){
     return(
         <View style={styles.container}>
-            <View style={styles.circle}/>
+            <TouchableOpacity style={styles.circle}/>
            <Text style={styles.cardText}>
-                Lorem ipsum dolor 
+                {task}
            </Text>
-           <Image style={styles.image} source={require('../../images/trash.png')}/>
+           <TouchableOpacity onPress={onRemove}>
+                <Image style={styles.image} source={require('../../images/trash.png')}/>
+           </TouchableOpacity>
         </View>
     )
 }
